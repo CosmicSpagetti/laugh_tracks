@@ -69,7 +69,7 @@ RSpec.describe 'comedians index page' do
     comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, birthplace: "Washington, D.C.")
 
     visit '/comedians?age=50'
-
+    save_and_open_page
     expect(page).to have_content(comedian_1.name)
     expect(page).to have_content(comedian_2.name)
     expect(page).to_not have_content(comedian_3.name)
