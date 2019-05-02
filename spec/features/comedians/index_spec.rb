@@ -2,6 +2,11 @@ require 'rails_helper.rb'
 
 RSpec.describe 'comedians index page' do
 
+  before :each do
+    Special.destroy_all
+    Comedian.destroy_all
+  end
+
   it 'shows comedians' do
     comedian_1 = Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA")
     comedian_2 = Comedian.create(name: "Louis C.K.", age: 51, birthplace: "Washington, D.C.")
@@ -64,12 +69,14 @@ RSpec.describe 'comedians index page' do
   end
 
   it "Shows list of comedians who match age criteria" do
-    comedian_1 = Comedian.create(name: "Bill Burr", age: 50, birthplace: "Canton, MA")
-    comedian_2 = Comedian.create(name: "Louis C.K.", age: 50, birthplace: "Washington, D.C.")
+
+    comedian_1 = Comedian.create(name: "Bill Burr", age: 48, birthplace: "Canton, MA")
+    comedian_2 = Comedian.create(name: "Louis C.K.", age: 48, birthplace: "Washington, D.C.")
     comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, birthplace: "Washington, D.C.")
 
-    visit '/comedians?age=50'
+    visit '/comedians?age=48'
     save_and_open_page
+
     expect(page).to have_content(comedian_1.name)
     expect(page).to have_content(comedian_2.name)
     expect(page).to_not have_content(comedian_3.name)
