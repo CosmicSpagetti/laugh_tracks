@@ -5,6 +5,7 @@
         <img class='comedian image' src="<%= comedian.image_url %>" alt=<%= comedian.name %> >
         <p>Age: <%= comedian.age %> Birthplace: <%=comedian.birthplace %> </p>
       <h3> Specials </h3>
+      <h5> Specials count: <%= comedian.specials.count %> </h5>
           <span><ul><% comedian.specials.each do |special| %>
             <li><%= special.name %>
             RunTime: <%= special.runtime_mins %></li>
