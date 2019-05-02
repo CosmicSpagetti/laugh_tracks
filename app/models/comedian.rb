@@ -3,7 +3,7 @@ class Comedian < ApplicationRecord
 
   validates_presence_of :name, :age, :birthplace
 
-  def self.show_by_age(age)
+  def self.find_all_by_age(age)
     Comedian.where(age: age)
   end
 
