@@ -1,10 +1,13 @@
 class ComediansController < ApplicationController
 
   def create
-
+    comedians = Comedian.new(comedians_params)
+    comedians.save
+    redirect_to '/comedians'
   end
 
   def new
+
   end
 
   def index
@@ -13,6 +16,12 @@ class ComediansController < ApplicationController
     else
       @comedians = Comedian.all
     end
+  end
+
+  private
+  
+  def comedians_params
+    params.require(:comedian).permit(:name, :age, :birthplace)
   end
 
 end

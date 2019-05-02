@@ -5,17 +5,21 @@ RSpec.describe "comedians form" do
     Special.destroy_all
     Comedian. destroy_all
   end
-  
+
   it "should create a new comedian" do
     visit '/comedians/new'
 
     fill_in "comedian[name]", with: "Billy"
     fill_in "comedian[age]", with: "25"
     fill_in "comedian[birthplace]", with: "Miami"
+
+    expect(current_path).to eq('/comedians/new')
+    
     click_button 'Create Comedian'
 
     billy = Comedian.last
 
+    expect(current_path).to eq('/comedians')
     expect(page).to have_content(billy.name)
     expect(page).to have_content(billy.age)
     expect(page).to have_content(billy.birthplace)

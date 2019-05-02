@@ -301,13 +301,17 @@
         1,
         1,
         1,
+        null,
+        1,
+        null,
         1,
         null,
         1,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -388,9 +392,12 @@
         null,
         1,
         1,
+        1,
+        1,
         null,
         null,
         1,
+        null,
         null,
         null,
         1,
@@ -401,6 +408,12 @@
         null,
         null,
         null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/billyurrutia/Turing/mod_2/projects/laugh_tracks/app/controllers/application_controller.rb": [
@@ -409,6 +422,6 @@
         null
       ]
     },
-    "timestamp": 1556827485
+    "timestamp": 1556828533
   }
 }
