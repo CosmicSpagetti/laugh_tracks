@@ -15,4 +15,9 @@ class Comedian < ApplicationRecord
     Comedian.average(:age)
   end
 
+  def self.comedian_cities
+    Comedian.distinct.pluck(:city)
+
+  end
+
 end

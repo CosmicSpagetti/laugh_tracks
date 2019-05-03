@@ -76,7 +76,7 @@ RSpec.describe 'comedians index page' do
     comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, city: "Washington, D.C.")
 
     visit '/comedians?age=48'
-
+    save_and_open_page
     expect(page).to have_content(comedian_1.name)
     expect(page).to have_content(comedian_2.name)
     expect(page).to_not have_content(comedian_3.name)
@@ -110,7 +110,7 @@ RSpec.describe 'comedians index page' do
     comedian_2.specials.create(name: "Rocky Mountain High", runtime_mins: 63)
 
     comedians_average_age = Comedian.average(:age)
-    comedian_cities = Comedian.pluck(:city)
+    comedian_cities = Comedian.distinct.pluck(:city).join(" ")
 
     visit  '/comedians'
 

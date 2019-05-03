@@ -35,8 +35,17 @@ require 'rails_helper'
       average_ages = Comedian.average(:age)
 
       expect(Comedian.average_by_age).to eq(average_ages)
-
     end
+
+    it "should return distinct list of cities" do
+      comedian_1 = Comedian.create(name: "Bill Burr", age: 49, city: "Canton, MA")
+      comedian_2 = Comedian.create(name: "Louis C.K.", age: 49, city: "Washington, D.C.")
+      comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, city: "Washington, D.C.")
+
+      expect(Comedian.comedian_cities).to eq([comedian_1.city, comedian_2.city])
+    end
+
+
   end
 
   describe "instance method" do

@@ -20,8 +20,8 @@ class ComediansController < ApplicationController
     else
       @comedians = Comedian.all
     end
-    @comedians_average_age = Comedian.average_by_age
-    @comedians_birthplace = Comedian.city_list
+    @comedians_average_age = @comedians.average_by_age
+    @list_of_cities = @comedians.comedian_cities
   end
 
 

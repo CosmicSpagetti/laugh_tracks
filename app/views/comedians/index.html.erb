@@ -1,7 +1,10 @@
 <header class='statistics'>
   <h1> Statistics </h1>
-  <p><%= @comedians_average_age %></p>
-  <p><%= @comedians_cities %></p>
+  <p>Average age: <%= @comedians_average_age %></p>
+  <p>Cities: <% @list_of_cities.each do |city| %>
+    <%= city %>
+    <% end  %>
+  </p>
   <hr>
 
 </header>
@@ -18,6 +21,7 @@
             <li><%= special.name %>
             RunTime: <%= special.runtime_mins %></li>
             <% end  %>
+            <hr>
           </ul></span>
      </section>
   <% end %>

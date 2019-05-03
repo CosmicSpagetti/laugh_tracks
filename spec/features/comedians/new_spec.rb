@@ -19,7 +19,7 @@ RSpec.describe "comedians form" do
     fill_in "comedian[name]", with: "Billy"
     fill_in "comedian[age]", with: "25"
     fill_in "comedian[city]", with: "miami"
-    save_and_open_page
+    
     click_button 'Create Comedian'
     billy = Comedian.last
 
