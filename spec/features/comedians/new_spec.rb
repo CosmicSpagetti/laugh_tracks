@@ -11,18 +11,22 @@ RSpec.describe "comedians form" do
 
     fill_in "comedian[name]", with: "Billy"
     fill_in "comedian[age]", with: "25"
-    fill_in "comedian[birthplace]", with: "Miami"
 
-    expect(current_path).to eq('/comedians/new')
-    
     click_button 'Create Comedian'
 
+    expect(current_path).to eq('/comedians/new')
+
+    fill_in "comedian[name]", with: "Billy"
+    fill_in "comedian[age]", with: "25"
+    fill_in "comedian[city]", with: "miami"
+    save_and_open_page
+    click_button 'Create Comedian'
     billy = Comedian.last
 
     expect(current_path).to eq('/comedians')
     expect(page).to have_content(billy.name)
     expect(page).to have_content(billy.age)
-    expect(page).to have_content(billy.birthplace)
+    expect(page).to have_content(billy.city)
   end
 
 
