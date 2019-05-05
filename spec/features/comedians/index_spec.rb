@@ -76,8 +76,8 @@ RSpec.describe 'comedians index page' do
     comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, city: "Washington, D.C.")
 
     visit '/comedians?age=48'
-    save_and_open_page
-    expect(page).to have_content(comedian_1.name)
+
+     expect(page).to have_content(comedian_1.name)
     expect(page).to have_content(comedian_2.name)
     expect(page).to_not have_content(comedian_3.name)
   end
@@ -101,9 +101,9 @@ RSpec.describe 'comedians index page' do
 
   end
 
-  it "should show statistic area with " do
+  it "should show statistic area with average age and cities for the comedians on the page " do
     comedian_1 = Comedian.create(name: "Bill Burr", age: 50, city: "Canton, MA")
-    comedian_2 = Comedian.create(name: "Louis C.K.", age: 51, city: "Washington, D.C.")
+    comedian_2 = Comedian.create(name: "Louis C.K.", age: 50, city: "Washington, D.C.")
     comedian_3 = Comedian.create(name: "Dave Chappelle", age: 45, city: "Washington, D.C.")
     comedian_1.specials.create(name: "Walk Your Way Out", runtime_mins: 77)
     special_1 = Special.create(name: "I'm Sorry You Feel That Way", runtime_mins: 80, comedian_id: comedian_1.id)
@@ -117,11 +117,20 @@ RSpec.describe 'comedians index page' do
     expect(page).to have_content("Statistics")
 
     within ".statistics" do
-      expect(page).to have_content("Average age: #{comedians_average_age}")
+      expect(page).to have_content("Average age: #{comedians_average_age.round(2)}")
       expect(page).to have_content("Cities: #{comedian_cities}")
     end
 
+    visit 'comedians?age=50'
+
+    within ".statistics" do
+      expect(page).to have_content("Average age: 50")
+      expect(page).to have_content("Cities: #{comedian_cities}")
+    end
 
   end
+
+
+
 
 end

@@ -1,19 +1,18 @@
 <header class='statistics'>
   <h1> Statistics </h1>
-  <p>Average age: <%= @comedians_average_age %></p>
+  <p>Average age: <%= @comedians_average_age.round(2) %></p>
   <p>Cities: <% @list_of_cities.each do |city| %>
     <%= city %>
     <% end  %>
   </p>
   <hr>
-
 </header>
 
 <h1> All Comedians </h1>
   <% @comedians.each do |comedian|%>
     <section id="comedian-<%=comedian.id%>" >
       <h2><%= comedian.name %></h2>
-        <img class='comedian image' src="<%= comedian.image_url %>" alt=<%= comedian.name %> >
+        <img class='comedian image' src="<%= comedian.image_url %>" alt="<%= comedian.name %>" >
         <p>Age: <%= comedian.age %> Cities: <%=comedian.city %> </p>
       <h3> Specials </h3>
       <h5> Specials count: <%= comedian.specials_count %> </h5>

@@ -2,7 +2,6 @@ class ComediansController < ApplicationController
 
   def create
     comedians = Comedian.new(comedians_params)
-
     if comedians.save
       redirect_to '/comedians'
     else
