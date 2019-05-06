@@ -1,10 +1,10 @@
-<%= form_for Comedian.new do |c| %>
+<%= form_for @comedians do |c| %>
 <p><%= c.label :name %>
    <%= c.text_field :name %><br/>
    <%= c.label :age %>
    <%= c.text_field :age %><br/>
-   <%= c.label :birthplace %>
-   <%= c.text_field :birthplace %></p>
+   <%= c.label :city %>
+   <%= c.text_field :city %></p>
 
   <p><%= c.submit %></p>
 <% end %>

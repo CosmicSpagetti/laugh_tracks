@@ -13,6 +13,20 @@
  *= require_tree .
  *= require_self
  */
-.comedian image {
-  height:200px;
+.image {
+    height: 200px;
+}
+
+.player-section {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 300px;
+}
+
+body {
+  background-color: lightblue;
 }

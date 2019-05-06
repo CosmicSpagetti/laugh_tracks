@@ -1,15 +1,28 @@
+<header class='statistics'>
+  <h1> Statistics </h1>
+  <p>Average age: <%= @comedians_average_age.round(2) %></p>
+  <p>Cities: <% @list_of_cities.each do |city| %>
+    <%= city %>
+    <% end  %>
+  </p>
+  <hr>
+</header>
+
 <h1> All Comedians </h1>
+<div class='player-section'>
   <% @comedians.each do |comedian|%>
-    <section id="<%=comedian.id%>" >
-      <h2><%= comedian.name %></h2>
-        <img class='comedian image' src="<%= comedian.image_url %>" alt=<%= comedian.name %> >
-        <p>Age: <%= comedian.age %> Birthplace: <%=comedian.birthplace %> </p>
+    <section class="card" id="comedian-<%=comedian.id%>" >
+      <h2 class="card-title" ><%= comedian.name %></h2>
+        <img class="card-img-top" src="<%= comedian.image_url %>" alt="<%= comedian.name %>" >
+        <p class="card-text">Age: <%= comedian.age %> Cities: <%=comedian.city %> </p>
       <h3> Specials </h3>
-      <h5> Specials count: <%= comedian.specials.count %> </h5>
+      <h5> Specials count: <%= comedian.specials_count %> </h5>
           <span><ul><% comedian.specials.each do |special| %>
             <li><%= special.name %>
             RunTime: <%= special.runtime_mins %></li>
             <% end  %>
+            <hr>
           </ul></span>
      </section>
   <% end %>
+</div>
