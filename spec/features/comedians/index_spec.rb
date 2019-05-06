@@ -122,7 +122,6 @@ RSpec.describe 'comedians index page' do
     end
 
     visit 'comedians?age=50'
-
     within ".statistics" do
       expect(page).to have_content("Average age: 50")
       expect(page).to have_content("Cities: #{comedian_cities}")

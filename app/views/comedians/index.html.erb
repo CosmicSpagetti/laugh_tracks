@@ -9,11 +9,12 @@
 </header>
 
 <h1> All Comedians </h1>
+<div class='player-section'>
   <% @comedians.each do |comedian|%>
-    <section id="comedian-<%=comedian.id%>" >
-      <h2><%= comedian.name %></h2>
-        <img class='comedian image' src="<%= comedian.image_url %>" alt="<%= comedian.name %>" >
-        <p>Age: <%= comedian.age %> Cities: <%=comedian.city %> </p>
+    <section class="card" id="comedian-<%=comedian.id%>" >
+      <h2 class="card-title" ><%= comedian.name %></h2>
+        <img class="card-img-top" src="<%= comedian.image_url %>" alt="<%= comedian.name %>" >
+        <p class="card-text">Age: <%= comedian.age %> Cities: <%=comedian.city %> </p>
       <h3> Specials </h3>
       <h5> Specials count: <%= comedian.specials_count %> </h5>
           <span><ul><% comedian.specials.each do |special| %>
@@ -24,3 +25,4 @@
           </ul></span>
      </section>
   <% end %>
+</div>
